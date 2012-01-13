@@ -5,21 +5,29 @@ var tothecroppa = function() {
       img = null,
       mousedown = false,
       done = false,
+      detectevent = 'dblclick',
       ic = {};
-  var menu = '<menu type="context" id="croppamenu">'+
-             '<menuitem label="crop" id="croppaitem" '+
-             ' onclick="tothecroppa.initcrop()">'+
-             '</menuitem></menu>';
-  document.body.innerHTML += menu;
+  if ('contextMenu' in document.documentElement ) {
+    var menu = '<menu type="context" id="croppamenu">'+
+               '<menuitem label="crop" id="croppaitem" '+
+               ' onclick="tothecroppa.initcrop()">'+
+               '</menuitem></menu>';
+    document.body.innerHTML += menu;
+    document.body.setAttribute( 'contextmenu', 'croppamenu' );
+    detectevent = 'contextmenu';
+  } 
+
   c.style.display = 'block';
   c.style.position = 'absolute';
   c.style.left = '-20000px';
   c.style.top = 0;
   document.body.appendChild( c );
-  document.body.setAttribute( 'contextmenu', 'croppamenu' );
-  document.body.addEventListener( 'contextmenu', function( ev ) {
+  
+  document.body.addEventListener( detectevent, function( ev ) {
     if ( ev.target.tagName === 'IMG' ) {
-      document.querySelector('#croppaitem').disabled = false;
+      if ( detectevent === 'contextmenu' ) {
+        document.querySelector('#croppaitem').disabled = false;
+      } 
       img = ev.target;
       ic = {
         left: img.offsetLeft,
@@ -27,8 +35,13 @@ var tothecroppa = function() {
         width: img.offsetWidth,
         height: img.offsetHeight
       }
+      if ( detectevent === 'dblclick' ) {
+        initcrop();
+      }
     } else {
-      document.querySelector('#croppaitem').disabled = true;
+      if ( detectevent === 'contextmenu' ) {
+        document.querySelector('#croppaitem').disabled = true;
+      }
     }
   }, false);
   

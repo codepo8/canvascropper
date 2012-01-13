@@ -46,10 +46,11 @@
 </style>
 </head>
 <body>
-  <header><h1>Image cropping with canvas and context menu</h1></header>
+  
+  <header><h1>Image cropping with canvas<span></span></h1></header>
   <section>
     <img src="puking-unicorn.jpg" alt="rainbow puking unicorn">
-    <p>Try it out above. Right-click to activate, select area and double-click or enter to crop.</p>
+    <p>Try it out above. <span>Double-click</span> to activate, select area and double-click or enter to crop.</p>
     <p>Drag this to your toolbar to use in any web site: <a href="javascript:(function%20()%20{%20'use%20strict';%20var%20head%20=%20document.getElementsByTagName('head')[0],%20script%20=%20document.createElement('script');%20script.type%20=%20'text/javascript';%20script.src%20=%20'https://raw.github.com/codepo8/canvascropper/master/cropmenu.js';%20head.appendChild(script);%20}());">Crop</a></p>
   </section>
   <h2>Screencast</h1>
@@ -60,6 +61,14 @@
     ( <a href="http://twitter.com/codepo8">@codepo8</a>)
   </p>
 </footer>
+  <a href="https://github.com/codepo8/canvascropper"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 <script src="cropmenu.js"></script>
+<script>
+  if ('contextMenu' in document.documentElement ) {
+    var msg = document.querySelectorAll('span');
+    msg[0].innerHTML = ' and context menu';
+    msg[1].innerHTML = 'Right-click';
+  }
+</script>
 </body>
 </html>
