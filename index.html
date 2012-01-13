@@ -9,16 +9,39 @@
   * { 
     margin: 0;
     padding: 0;
-    font-size: 15px;
     font-family: helvetica, arial, sans-serif;
   }
   footer, section, header, aside, figure {
     display: block;
   }
+  h1{font-size: 18px}
   canvas{background:#ccc}
   section,h1,footer {
     width:400px;
     margin:10px auto;
+    display:block;
+  }
+  iframe,h2 {
+    width:560px;
+    margin:10px auto;
+    display:block;
+  }
+  h2{margin-top:30px}
+  section p{
+    margin: 10px 0;
+  }
+  footer{
+    font-size: 12px;
+    text-align: center;
+  }
+  a{color: #369}
+  section a{
+    background: #369;
+    color: #fff;
+    padding:5px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight: bold;
   }
 </style>
 </head>
@@ -27,7 +50,10 @@
   <section>
     <img src="puking-unicorn.jpg" alt="rainbow puking unicorn">
     <p>Try it out above. Right-click to activate, select area and double-click or enter to crop.</p>
+    <p>Drag this to your toolbar to use in any web site: <a href="javascript:(function%20()%20{%20'use%20strict';%20var%20head%20=%20document.getElementsByTagName('head')[0],%20script%20=%20document.createElement('script');%20script.type%20=%20'text/javascript';%20script.src%20=%20'https://raw.github.com/codepo8/canvascropper/master/cropmenu.js';%20head.appendChild(script);%20}());">Crop</a></p>
   </section>
+  <h2>Screencast</h1>
+  <iframe width="560" height="315" src="http://www.youtube.com/embed/J6DZasMDEMc?rel=0" frameborder="0" allowfullscreen></iframe>
   <footer>
   <p>Written by 
     <a href="http://christianheilmann.com/">Chris Heilmann</a> 
