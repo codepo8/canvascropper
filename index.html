@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Image cropping with canvas</title>
-  <meta type="description" content="">
+  <title>Image cropping with canvas and context menu</title>
+  <meta type="description" content="A demo of how you can use the context menu and canvas to provide in-browser image cropping">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <style>
   * { 
@@ -15,6 +15,7 @@
   footer, section, header, aside, figure {
     display: block;
   }
+  canvas{background:#ccc}
   section,h1,footer {
     width:400px;
     margin:10px auto;
@@ -22,10 +23,10 @@
 </style>
 </head>
 <body>
-  <header><h1>Image cropping with canvas</h1></header>
+  <header><h1>Image cropping with canvas and context menu</h1></header>
   <section>
     <img src="puking-unicorn.jpg" alt="rainbow puking unicorn">
-    <p>Try it out above. Click to activate, select area and double-click or hit enter to crop.</p>
+    <p>Try it out above. Right-click to activate, select area and double-click or enter to crop.</p>
   </section>
   <footer>
   <p>Written by 
@@ -33,6 +34,6 @@
     ( <a href="http://twitter.com/codepo8">@codepo8</a>)
   </p>
 </footer>
-<script src="canvascrop.js"></script>
+<script src="cropmenu.js"></script>
 </body>
 </html>
